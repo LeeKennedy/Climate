@@ -1,4 +1,4 @@
-dataw <- read.csv("melbourne.csv", header = TRUE)
+dataw <- read.csv("data/melbourne.csv", header = TRUE)
 
 limit <- 43
 

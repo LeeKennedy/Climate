@@ -1,4 +1,4 @@
-melb <- read.csv("melbourne.csv", as.is=TRUE, header=TRUE)
+melb <- read.csv("data/melbourne.csv", as.is=TRUE, header=TRUE)
 library(dplyr)
 library(ggplot2)
 library(reshape2)
@@ -6,14 +6,14 @@ library(reshape2)
 melb <- na.omit(melb)
 
 max.temp1 <- select(melb, Year:Min)%>%
-  filter(Year == 2012 )%>%
+  filter(Year == 2013 )%>%
   group_by(Month)%>%
   summarize(Ave = mean(Max))
 
 barplot(max.temp1$Ave)
 
 max.temp2 <- select(melb, Year:Min)%>%
-  filter(Year == 2013 )%>%
+  filter(Year == 2014 )%>%
   group_by(Month)%>%
   summarize(Ave = mean(Max))
 

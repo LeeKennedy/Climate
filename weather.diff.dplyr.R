@@ -1,11 +1,11 @@
-melb <- read.csv("melbourne.csv", as.is=TRUE, header=TRUE)
+melb <- read.csv("data/melbourne.csv", as.is=TRUE, header=TRUE)
 library("dplyr")
 library("ggplot2")
 
 melb <- na.omit(melb)
 
 max.temp <- select(melb, Year:Min)%>%
-  filter(Year > 1953, Month == 12 )%>%
+  filter(Year > 1953, Month == 2 )%>%
   mutate(diff = Max-Min)%>%
   group_by(Year)%>%
   summarize(diff2 = mean(diff))

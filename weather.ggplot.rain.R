@@ -1,5 +1,5 @@
 library(ggplot2)
-data1<-read.csv("melbourne.csv", header = TRUE)
+data1<-read.csv("data/melbourne.csv", header = TRUE)
 
 #Set month
 mth <- 7

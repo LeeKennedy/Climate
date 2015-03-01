@@ -1,10 +1,10 @@
 library(ggplot2)
 library(dplyr)
-data1<-read.csv("melbourne.csv", header = TRUE)
+data1<-read.csv("data/melbourne.csv", header = TRUE)
 
 rain <- select(data1, everything())%>%
         filter(Year %in% 1900:2014)%>%
-        #filter(Month %in% c(3,4,5))%>%
+        filter(Month %in% c(2))%>%
         group_by(Year)%>%
         summarise(raintot = sum(Rain))
         

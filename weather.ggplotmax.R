@@ -1,11 +1,11 @@
-data1<-read.csv("melbourne.csv", header = TRUE)
+data1<-read.csv("data/melbourne.csv", header = TRUE)
 #data1<-read.csv("melbourne.csv", header = TRUE)
 #aggregate(data$Max_Temp ~ data$Month, FUN = mean)
 #aggregate(cbind(data$Month, data$Max_Temp) ~ data$Year, FUN = mean)
 
 
 #mth = number, c(vector) or range x:y
-mth <- 6
+mth <- 2
 #mth <- c(12,1,2)
 par(mfcol = c(1,1))
 
@@ -34,6 +34,6 @@ ggplot(aggdata2, aes(Year2,Max2)) +
   annotate("text", label = "Highest pre-2000 yearly average", x = 1900, y = 22) + 
   annotate("text", label = "2015", x = 2010, y = 24) + 
   annotate("text", label = "2000", x = 1995, y = 24) + 
-  scale_x_continuous("Year",limits=c(1855,2020), breaks=seq(1855,2020, 50)) +
-  scale_y_continuous("Average Temperature, ?C",limits=c(10,25), breaks=seq(10,25, 2))
+  scale_x_continuous("Year",limits=c(1855,2020), breaks=seq(1855,2020, 50)) 
+  #scale_y_continuous("Average Temperature, ?C",limits=c(10,25), breaks=seq(10,25, 2))
 

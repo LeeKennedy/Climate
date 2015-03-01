@@ -1,4 +1,4 @@
-melb <- read.csv("melbourne.csv", as.is=TRUE, header=TRUE)
+melb <- read.csv("data/melbourne.csv", as.is=TRUE, header=TRUE)
 library("dplyr")
 library("ggplot2")
 

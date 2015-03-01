@@ -1,4 +1,4 @@
-melb <- read.csv("melbourne.csv", as.is=TRUE, header=TRUE)
+melb <- read.csv("data/melbourne.csv", as.is=TRUE, header=TRUE)
 library(dplyr)
 library(ggplot2)
 library(reshape2)
@@ -8,7 +8,7 @@ library(reshape2)
 melb <- na.omit(melb)
 
 max.temp <- select(melb, everything())%>%
-  filter(Month == 1 )%>%
+  filter(Month == 2 )%>%
   filter(Year >= 1954)%>%
   group_by(Year)%>%
   summarize(MaxT = mean(Max), MinT = mean(Min))
