@@ -8,8 +8,8 @@ library(reshape2)
 melb <- na.omit(melb)
 
 max.temp <- select(melb, everything())%>%
-  filter(Month == 2 )%>%
-  filter(Year >= 1954)%>%
+  filter(Month == 4 )%>%
+  #filter(Year >= 1954)%>%
   group_by(Year)%>%
   summarize(MaxT = mean(Max), MinT = mean(Min))
 

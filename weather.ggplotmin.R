@@ -4,7 +4,7 @@ data1<-read.csv("data/melbourne.csv", header = TRUE)
 #aggregate(cbind(data$Month, data$Max_Temp) ~ data$Year, FUN = mean)
 
 #mth = number, c(vector) or range x:y
-mth <- 2
+mth <- 1:12
 #mth <- c(12,1,2)
 par(mfcol = c(1,1))
 
@@ -17,7 +17,7 @@ colnames(aggdata1) <- newnames1
 #aggdata1 <- aggdata1[2:160,]
 
 # For Years
-aggdata1 <- aggdata1[2:159,]
+aggdata1 <- aggdata1[2:160,]
 
 # Min Temp pre 2000
 mt <- max(aggdata1$Min1[2:146])

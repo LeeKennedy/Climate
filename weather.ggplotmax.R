@@ -5,7 +5,7 @@ data1<-read.csv("data/melbourne.csv", header = TRUE)
 
 
 #mth = number, c(vector) or range x:y
-mth <- 2
+mth <- 1:12
 #mth <- c(12,1,2)
 par(mfcol = c(1,1))
 
