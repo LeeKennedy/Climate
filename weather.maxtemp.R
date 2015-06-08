@@ -1,14 +1,18 @@
+library(dplyr)
+library(ggplot2)
+
 dataw <- read.csv("data/melbourne.csv", header = TRUE)
 
-limit <- 43
+input <- dataw %>%
+        filter (Max >= 40 ) %>%
+        group_by(Year) %>%
+        summarise(Count = n())
+        
+input
 
-dataw$lim <- dataw$Max >limit
+plot(input$Count)
 
-xx <- table(dataw$Year,dataw$lim)
-
-
-DayCount <- xx[,-1]
-
-
-plot(DayCount)
-
+plot <- ggplot(input, aes(x=Year, y = Count)) +
+        geom_point(size=4, shape=21, colour = "darkgreen") +
+        geom_smooth(method=loess)
+plot
