@@ -4,7 +4,7 @@ library(dplyr)
 data1<-read.csv("data/melbourne.csv", header = TRUE)
 
 input <- select(data1, c(4:6,8)) %>%
-        #filter(Month == 5) %>%
+        filter(Month == 6) %>%
         filter(Year >= 1855 & Year <= 2014) %>%
         group_by(Year) %>%
         summarise(Mean = mean(Min))
