@@ -4,7 +4,7 @@ library(dplyr)
 data1<-read.csv("data/melbourne.csv", header = TRUE)
 
 input <- select(data1, 4:7) %>%
-        filter(Month == 6) %>%
+        filter(Month == 7) %>%
         filter(Year >= 1855 & Year <= 2014) %>%
         group_by(Year) %>%
         summarise(Mean = mean(Max))
@@ -20,11 +20,9 @@ ggplot(input, aes(Year,Mean)) +
   geom_point() + 
   geom_smooth(method=loess) + 
   geom_hline(yintercept = mt, color="red") +
-  geom_vline(xintercept = 2015, color="tomato1", linetype = "dashed") +
   geom_vline(xintercept = 2000, color="darkgreen", linetype = "solid") +
   ggtitle("Melbourne's Average Temperature") + 
   annotate("text", label = "Highest pre-2000 yearly average", x = 1900, y = mt+0.25) + 
-  annotate("text", label = "2015", x = 2010, y = 24) + 
   annotate("text", label = "2000", x = 1995, y = 24) + 
   scale_x_continuous("Year",limits=c(1855,2020), breaks=seq(1855,2020, 50))
 
