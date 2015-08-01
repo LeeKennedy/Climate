@@ -5,7 +5,7 @@ data1<-read.csv("data/melbourne.csv", header = TRUE)
 
 input <- select(data1, 4:7) %>%
         filter(Month == 7) %>%
-        filter(Year >= 1855 & Year <= 2014) %>%
+        filter(Year >= 1855 & Year <= 2015) %>%
         group_by(Year) %>%
         summarise(Mean = mean(Max))
 
