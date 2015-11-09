@@ -1,6 +1,6 @@
 library(ggplot2)
 library(dplyr)
-data1<-read.csv("data/melbourne.csv", header = TRUE)
+data1<-read.csv("data/kerang_rain.csv", header = TRUE)
 
 rain <- select(data1, everything())%>%
         filter(Year %in% 1900:2014)%>%

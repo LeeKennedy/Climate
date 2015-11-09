@@ -5,15 +5,12 @@ dataw <- read.csv("data/melbourne.csv", header = TRUE)
 
 input <- dataw %>%
         filter(Month == 10) %>%
-        filter (Max >= 25 ) %>%
         group_by(Year) %>%
-        summarise(Count = n())
+        summarise(Max_month = max(Max))
         
 input
 
-plot(input$Count)
-
-plot <- ggplot(input, aes(x=Year, y = Count)) +
+plot <- ggplot(input, aes(x=Year, y = Max_month)) +
         geom_point(size=4, shape=21, colour = "darkgreen") +
         geom_smooth(method=loess)
 plot

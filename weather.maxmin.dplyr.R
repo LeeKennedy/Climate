@@ -1,16 +1,16 @@
-melb <- read.csv("data/melbourne.csv", as.is=TRUE, header=TRUE)
+
 library(dplyr)
 library(ggplot2)
 library(reshape2)
 
 
+data2 <- read.csv("data/melbourne.csv", as.is=TRUE, header=TRUE)
+data2 <- na.omit(data2)
 
-melb <- na.omit(melb)
-
-max.temp <- select(melb, everything())%>%
-  filter(Month == 8 )%>%
+max.temp <- select(data2, everything())%>%
+  filter(Month == 10 )%>%
         #filter(Month %in% c(6,7,8)) %>%
-  filter(Year >= 1954)%>%
+  filter(Year >=1900 & Year <= 2015)%>%
   group_by(Year)%>%
   summarize(MaxT = mean(Max), MinT = mean(Min))
 
