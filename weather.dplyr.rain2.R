@@ -1,6 +1,6 @@
 library(ggplot2)
 library(dplyr)
-data1<-read.csv("data/kerang_rain.csv", header = TRUE)
+data1<-read.csv("data/kerang.csv", header = TRUE)
 
 rain <- select(data1, everything())%>%
         filter(Year %in% 1900:2014)%>%
@@ -23,7 +23,7 @@ plot <- ggplot(rain, aes(Year,Days)) +
         #ylim(150,300) +
         theme_bw()
 
-plot <- plot +  labs(title="Number of days with rain in Melbourne") +
+plot <- plot +  labs(title="Number of days with rain in Kerang") +
         theme(plot.title = element_text(size=20, face="bold", vjust=1.5, lineheight=1.2))
 
 
@@ -36,7 +36,7 @@ plot <- ggplot(rain2, aes(Year,Amt)) +
         #ylim(150,300) +
         theme_bw()
 
-plot <- plot +  labs(y= "mm rain per rainy day", title="Average rain on a rainy day in Melbourne") +
+plot <- plot +  labs(y= "mm rain per rainy day", title="Average rain on a rainy day in Kerang") +
         theme(plot.title = element_text(size=20, face="bold", vjust=1.5, lineheight=1.2))
 
 

@@ -4,7 +4,7 @@ library(ggplot2)
 dataw <- read.csv("data/melbourne.csv", header = TRUE)
 
 input <- dataw %>%
-        filter(Month == 10) %>%
+        filter(Month == 11) %>%
         filter (Max >= 25 ) %>%
         group_by(Year) %>%
         summarise(Count = n())
