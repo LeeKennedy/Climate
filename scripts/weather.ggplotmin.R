@@ -1,5 +1,5 @@
-library(ggplot2)
-library(dplyr)
+library('ProjectTemplate')
+load.project()
 
 data1<-read.csv("data/melbourne.csv", header = TRUE)
 

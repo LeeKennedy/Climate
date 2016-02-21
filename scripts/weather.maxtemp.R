@@ -1,11 +1,13 @@
-library(dplyr)
-library(ggplot2)
+library('ProjectTemplate')
+load.project()
+
+# Calculates the number of days above a given maximum temperature--------------------
 
 dataw <- read.csv("data/melbourne.csv", header = TRUE)
 
 input <- dataw %>%
-        filter(Month == 11) %>%
-        filter (Max >= 25 ) %>%
+        filter(Month == 12) %>%
+        filter (Max >= 40 ) %>%
         group_by(Year) %>%
         summarise(Count = n())
         

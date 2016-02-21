@@ -21,3 +21,9 @@ bomdata<- function(station,code){
 
 # Charlton---------
 bomdata(080128,136)
+
+# Kerang--------
+bomdata(080023,136)
+
+# Melbourne--------
+bomdata(086071,136)

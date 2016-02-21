@@ -1,10 +1,12 @@
-library(dplyr)
-library(ggplot2)
+library('ProjectTemplate')
+load.project()
+
+#Extracts the maximum temperature for a month --------------------------------------
 
 dataw <- read.csv("data/melbourne.csv", header = TRUE)
 
 input <- dataw %>%
-        filter(Month == 11) %>%
+        filter(Month == 9) %>%
         group_by(Year) %>%
         summarise(Max_month = max(Max))
         

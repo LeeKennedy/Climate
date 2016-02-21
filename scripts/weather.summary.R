@@ -1,5 +1,7 @@
+library('ProjectTemplate')
+load.project()
+
 data1 <- read.csv("data/melbourne.csv",as.is=TRUE, header=TRUE)
-library(dplyr)
 
 data <- na.omit(data1)
 
