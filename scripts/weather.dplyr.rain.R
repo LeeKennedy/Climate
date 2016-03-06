@@ -5,7 +5,7 @@ data1<-read.csv("data/melbourne.csv", header = TRUE)
 
 rain <- select(data1, everything())%>%
         filter(Year %in% 1855:2015)%>%
-        filter(Month %in% c(1))%>%
+        filter(Month %in% c(2))%>%
         group_by(Year)%>%
         summarise(raintot = sum(Rain))
         

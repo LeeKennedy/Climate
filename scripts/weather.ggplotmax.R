@@ -4,7 +4,7 @@ load.project()
 data1<-read.csv("data/kerang.csv", header = TRUE)
 
 input <- select(data1, 4:8) %>%
-        #filter(Month == 2) %>%
+        filter(Month == 2) %>%
         filter(Year >= 1855 & Year <= 2014) %>%
         group_by(Year) %>%
         summarise(Mean = mean(Max, na.rm=TRUE))

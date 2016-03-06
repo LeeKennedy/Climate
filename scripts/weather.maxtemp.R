@@ -6,8 +6,8 @@ load.project()
 dataw <- read.csv("data/melbourne.csv", header = TRUE)
 
 input <- dataw %>%
-        filter(Month == 12) %>%
-        filter (Max >= 40 ) %>%
+        filter(Month == 2) %>%
+        filter (Max >= 25 ) %>%
         group_by(Year) %>%
         summarise(Count = n())
         

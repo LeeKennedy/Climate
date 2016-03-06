@@ -4,7 +4,7 @@ load.project()
 library(reshape2)
 
 
-data2 <- read.csv("data/melbourne.csv", as.is=TRUE, header=TRUE)
+data2 <- read.csv("data/kerang.csv", as.is=TRUE, header=TRUE)
 data2 <- na.omit(data2)
 
 max.temp <- select(data2, everything())%>%

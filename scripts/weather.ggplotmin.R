@@ -3,8 +3,8 @@ load.project()
 
 data1<-read.csv("data/melbourne.csv", header = TRUE)
 
-input <- select(data1, c(4:6,8)) %>%
-        filter(Month == 7) %>%
+input <- select(data1, c(4:6,7)) %>%
+        filter(Month == 2) %>%
         filter(Year >= 1855 & Year <= 2015) %>%
         group_by(Year) %>%
         summarise(Mean = mean(Min))
