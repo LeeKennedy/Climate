@@ -30,11 +30,13 @@ colnames(new.data)[2] <- "Min"
 colnames(new.data)[3] <- "Max"
 colnames(new.data)[4] <- "Rain"
 new.data$Item <- 1
-new.data <- new.data[, c(10,5:9,3,2,4)]
+new.data$X <- 1
+new.data <- new.data[, c(11,10,5:9,3,2,4)]
 
 # Combine & Save ------------------------------------------------------------------
 combined <- rbind(data, new.data)
 combined$Item <- as.numeric(row.names(combined))
+combined <- combined[,-1]
 
 write.csv(combined, paste("~/Documents/GitHub/Climate/data/", dataset[i],".csv", sep=""))
 }
