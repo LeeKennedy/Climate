@@ -8,7 +8,7 @@ data2 <- read.csv("data/kerang.csv", as.is=TRUE, header=TRUE)
 data2 <- na.omit(data2)
 
 max.temp <- select(data2, everything())%>%
-  #filter(Month == 12)%>%
+  #filter(Month == 2)%>%
         filter(Month %in% c(1)) %>%
   #filter(Year >=1900 & Year <= 2016)%>%
   group_by(Year)%>%

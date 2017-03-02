@@ -6,7 +6,7 @@ load.project()
 dataw <- read.csv("data/melbourne.csv", header = TRUE)
 
 input <- dataw %>%
-        filter(Month == 12) %>%
+        filter(Month == 2) %>%
         group_by(Year) %>%
         summarise(Max_month = max(Max))
         
