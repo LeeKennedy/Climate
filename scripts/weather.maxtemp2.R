@@ -3,10 +3,10 @@ load.project()
 
 #Extracts the maximum temperature for a month --------------------------------------
 
-dataw <- read.csv("data/melbourne.csv", header = TRUE)
+dataw <- read.csv("data/kerang.csv", header = TRUE)
 
 input <- dataw %>%
-        filter(Month == 2) %>%
+        filter(Month == 5) %>%
         group_by(Year) %>%
         summarise(Max_month = max(Max))
         
