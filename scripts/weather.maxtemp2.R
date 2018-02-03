@@ -1,12 +1,14 @@
-library('ProjectTemplate')
-load.project()
+
+library(tidyverse)
+library(reshape2)
+
 
 #Extracts the maximum temperature for a month --------------------------------------
 
 dataw <- read.csv("data/melbourne.csv", header = TRUE)
 
 input <- dataw %>%
-        filter(Month == 11) %>%
+        filter(Month == 2) %>%
         group_by(Year) %>%
         summarise(Max_month = max(Max))
 
@@ -14,7 +16,7 @@ input <- dataw %>%
 plot <- ggplot(input, aes(x=Year, y = Max_month)) +
         geom_point(size=4, shape=21, colour = "black", fill = "cornflowerblue") +
         geom_smooth(method=loess) +
-        labs(title = "Maximum Temperature for September", y = "Deg C") +
+        labs(title = "Maximum Temperature", y = "Deg C") +
         geom_hline(yintercept = 29, lty = 2, col ="red") +
         theme_bw() +
         theme(panel.grid.major = element_line(size = 0.5, color = "grey"), 
@@ -22,4 +24,4 @@ plot <- ggplot(input, aes(x=Year, y = Max_month)) +
 plot
 
 
-ggsave("temp_september_max.png", device = NULL, width = 10, height = 5, dpi = 100)
+#ggsave("temp_september_max.png", device = NULL, width = 10, height = 5, dpi = 100)
