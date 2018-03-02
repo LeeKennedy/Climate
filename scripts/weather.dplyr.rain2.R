@@ -4,7 +4,7 @@ load.project()
 data1<-read.csv("data/melbourne.csv", header = TRUE)
 
 rain <- select(data1, everything())%>%
-        filter(Year %in% 1855:2015)%>%
+        filter(Year %in% 1855:2017)%>%
         group_by(Year)%>%
         filter(Rain>0)%>%
         summarise(Days =n())
