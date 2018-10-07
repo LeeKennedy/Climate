@@ -1,11 +1,11 @@
-library('ProjectTemplate')
-load.project()
+library(tidyverse)
+library(reshape2)
 
-data1<-read.csv("data/melbourne.csv", header = TRUE)
+data1<-read.csv("data/kerang.csv", header = TRUE)
 
 rain <- select(data1, everything())%>%
         filter(Year %in% 1855:2018)%>%
-        filter(Month %in% c(2))%>%
+        filter(Month %in% c(9))%>%
         group_by(Year)%>%
         summarise(raintot = sum(Rain))
         
