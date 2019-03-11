@@ -1,7 +1,7 @@
 library(tidyverse)
 library(reshape2)
 
-data1<-read.csv("data/kerang.csv", header = TRUE)
+data1<-read.csv("data/melbourne.csv", header = TRUE)
 
 rain <- select(data1, everything())%>%
         filter(Year %in% 1855:2018)%>%
