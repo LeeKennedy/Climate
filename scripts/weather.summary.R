@@ -1,7 +1,10 @@
-library('ProjectTemplate')
-load.project()
 
-data1 <- read.csv("data/melbourne.csv",as.is=TRUE, header=TRUE)
+library(tidyverse)
+library(reshape2)
+
+
+
+data1 <- read.csv("data/kerang.csv",as.is=TRUE, header=TRUE)
 
 data <- na.omit(data1)
 
