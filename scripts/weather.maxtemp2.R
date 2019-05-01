@@ -8,7 +8,7 @@ library(reshape2)
 dataw <- read.csv("data/melbourne.csv", header = TRUE)
 
 input <- dataw %>%
-        filter(Month == 3) %>%
+        filter(Month == 4) %>%
         group_by(Year) %>%
         summarise(Max_month = max(Max))
 
