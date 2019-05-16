@@ -25,7 +25,7 @@ plot <- ggplot(rain, aes(Year,Days)) +
         #ylim(150,300) +
         theme_bw()
 
-plot <- plot +  labs(title="Number of days with rain in Kerang") +
+plot <- plot +  labs(title="Number of days with rain in Melbourne") +
         theme(plot.title = element_text(size=20, face="bold", vjust=1.5, lineheight=1.2))
 
 
