@@ -54,13 +54,13 @@ yearly <- data_in %>%
         filter(!Year %in% c(1970,1998)) %>% 
         na.omit() %>% 
         group_by(Town,Year) %>% 
-        summarise(n = n(), Max_Ave = mean(Max), Min_Ave = min(Min))
+        summarise(n = n(), Max_Ave = mean(Max), Min_Ave = mean(Min))
 yearly
 
 
 #### Visualising Data -----------------------------
 
-yearly_plot <- ggplot(yearly, aes(x = Year, y = Max_Ave, fill = Town)) +
+yearly_plot <- ggplot(yearly, aes(x = Year, y = Min_Ave, fill = Town)) +
         geom_point(size = 4, shape = 21) +
         geom_smooth(method = "loess")+
         scale_x_continuous(limits = c(1900,2018))+

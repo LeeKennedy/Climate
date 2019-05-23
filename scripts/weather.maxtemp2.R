@@ -8,14 +8,14 @@ library(reshape2)
 dataw <- read.csv("data/melbourne.csv", header = TRUE)
 
 input <- dataw %>%
-        filter(Month == 4) %>%
+        filter(Month == 5) %>%
         group_by(Year) %>%
         summarise(Max_month = max(Max))
 
 
 plot <- ggplot(input, aes(x=Year, y = Max_month)) +
         geom_point(size=4, shape=21, colour = "black", fill = "cornflowerblue") +
-        geom_smooth(method=loess) +
+        geom_smooth(method=lm) +
         labs(title = "Maximum Temperature", y = "Deg C") +
         geom_hline(yintercept = 29, lty = 2, col ="red") +
         theme_bw() +
