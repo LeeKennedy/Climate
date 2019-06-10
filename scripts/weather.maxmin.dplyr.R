@@ -8,10 +8,10 @@ data2 <- na.omit(data2)
 
 max.temp <- select(data2, everything())%>%
   #filter(Month == 2)%>%
-        filter(Month %in% c(1,11,12)) %>%
-        filter(Year >=1900 & Year < 2019)%>%
+        filter(Month %in% c(1,2,12)) %>%
+        filter(Year >=2000 & Year < 2019)%>%
   group_by(Year)%>%
-  summarize(MaxT = mean(Max), MinT = mean(Min))
+  summarize(MaxT = mean(Max, na.rm = TRUE), MinT = mean(Min, na.rm = TRUE))
 
 tall.temp <- gather(data=max.temp,key=Temp,value=Degree,na.rm=FALSE,MaxT,MinT)
 
