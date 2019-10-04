@@ -39,7 +39,7 @@ Loc <- "Melbourne"
 
 Years <- c(1800:2019)
 
-Months <- c(7)
+Months <- c(9)
 
 ## - creating date string ------------------------------------
 
