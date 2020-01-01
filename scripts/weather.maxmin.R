@@ -6,7 +6,7 @@ dataw <- read.csv("data/melbourne.csv", header = TRUE)
 
 input <- dataw %>%
         group_by(Year) %>%
-        filter(Month == 11) %>%
+        filter(Month == 12) %>%
         #filter (Min >= 18 ) %>%
         summarise(Count = n(), Max = max(Min))
         

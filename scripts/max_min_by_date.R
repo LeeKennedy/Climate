@@ -33,7 +33,7 @@ data_all <- rbind(data_m, data_k)
 
 ## Location = Melbourne or Kerang
 
-Loc <- "Kerang"
+Loc <- "Melbourne"
 
 ## Time scale
 
