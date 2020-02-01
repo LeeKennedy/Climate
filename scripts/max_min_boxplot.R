@@ -32,14 +32,13 @@ data_all <- rbind(data_m, data_k)
 #### Filter Criteria ---------------------------
 
 ## Location = Melbourne or Kerang
-
-Loc <- "Kerang"
+Loc <- "Melbourne"
 
 ## Time scale
 
-Years <- c(1800:2020)
+Years <- c(1800:2019)
 
-Months <- c(1)
+Months <- c(12)
 
 ## - creating date string ------------------------------------
 
@@ -59,22 +58,22 @@ data_set <- data_all %>%
         filter(Location == Loc) %>% 
         filter(Year %in% Years) %>% 
         filter(Month %in% Months) %>% 
-        group_by(Year) %>% 
-        summarise(Ave_Max = mean(Max, na.rm = TRUE), Ave_Min = mean(Min, na.rm = TRUE))
+        group_by(Year) 
 data_set
 
-data_long <- gather(data_set, Temperature, Value, Ave_Max, Ave_Min)
+boxplot(data_set$Max~data_set$Year,
+        outpch = 19,
+        outcol = "red")
+
+data_long <- gather(data_set, Temperature, Value, Abs_Max, Abs_Min)
 
 #### Visualising Data -----------------------------
 
-data_plot <- ggplot(data_long, aes(x = Year, y = Value, fill = Temperature)) +
-        geom_point(size=4, shape=21, col = "black") +
-        scale_fill_brewer(palette = "Set1")+
-        geom_smooth(method = "loess", se = TRUE, col = "black", lty = 4, alpha = 0.25)+
-        labs(title = paste("Average minimum and maximum temperatures for ", Loc, sep = ""), 
+data_plot <- ggplot(data_set, aes(x = Year, y = Max, group = Year)) +
+        geom_boxplot(fill = "cornflowerblue") +
+        labs(title = "ccc", 
              y = "DegC", 
-             x="", 
-             subtitle = M_string) +
+             x="") +
         theme_bw() +
         theme(panel.grid.major = element_line(size = 0.5, color = "grey"), 
         axis.line = element_line(size = 0.7, color = "black"), 
