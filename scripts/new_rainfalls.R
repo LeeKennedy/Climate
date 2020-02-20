@@ -81,6 +81,8 @@ data_plot <- ggplot(data_set, aes(x = Year, y = Total_Rain)) +
         text = element_text(size = 14), axis.text.x = element_text(angle = 0, hjust = 1))
 data_plot
 
+ggsave("graphs/Total_Rainfall_in_Melbourne.png", width=12, height = 6, dpi = 100)
+
 #### Visualising Total Number of Rainy Days -----------------------------
 
 data_no_plot <- ggplot(data_set, aes(x = Year, y = n)) +
@@ -95,3 +97,5 @@ data_no_plot <- ggplot(data_set, aes(x = Year, y = n)) +
               axis.line = element_line(size = 0.7, color = "black"), 
               text = element_text(size = 14), axis.text.x = element_text(angle = 0, hjust = 1))
 data_no_plot
+
+ggsave("graphs/Rainy_Days_in_Melbourne.png", width=12, height = 6, dpi = 100)
