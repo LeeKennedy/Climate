@@ -13,7 +13,7 @@ library(here)
 
 
 #### Data Input -----------------------------
-here()
+here::here()
 
 data_m <- read_csv("data/melbourne.csv", 
                    col_types = cols(Max = col_double(), 
@@ -39,7 +39,7 @@ Loc <- "Melbourne"
 
 Years <- c(1800:2019)
 
-Months <- c(1:12)
+Months <- c(4)
 
 ## - creating date string ------------------------------------
 
@@ -58,21 +58,21 @@ M_string <- paste("Data for ", month_list, sep="")
 data_set <- data_all %>% 
         filter(Location == Loc) %>% 
         filter(Year %in% Years) %>% 
-        #filter(Month %in% Months) %>% 
+        filter(Month %in% Months) %>% 
+        filter(Rain > 0) %>% 
         group_by(Year) %>% 
-        summarise(Ave_Max = mean(Max, na.rm = TRUE), Ave_Min = mean(Min, na.rm = TRUE))
+        summarise(n=n(), Ave_Rain = mean(Rain), Total_Rain = sum(Rain))
 data_set
 
 data_long <- gather(data_set, Temperature, Value, Ave_Max, Ave_Min)
 
-#### Visualising Data -----------------------------
+#### Visualising Total Rainfall Data -----------------------------
 
-data_plot <- ggplot(data_long, aes(x = Year, y = Value, fill = Temperature)) +
-        geom_point(size=4, shape=21, col = "black") +
-        scale_fill_brewer(palette = "Set1")+
+data_plot <- ggplot(data_set, aes(x = Year, y = Total_Rain)) +
+        geom_point(size=4, shape=21, col = "black", fill = "cornflowerblue") +
         geom_smooth(method = "loess", se = TRUE, col = "black", lty = 4, alpha = 0.25)+
-        labs(title = paste("Average minimum and maximum temperatures for ", Loc, sep = ""), 
-             y = "DegC", 
+        labs(title = paste("Total rainfall for ", Loc, sep = ""), 
+             y = "mm", 
              x="", 
              subtitle = M_string) +
         theme_bw() +
@@ -80,3 +80,22 @@ data_plot <- ggplot(data_long, aes(x = Year, y = Value, fill = Temperature)) +
         axis.line = element_line(size = 0.7, color = "black"), 
         text = element_text(size = 14), axis.text.x = element_text(angle = 0, hjust = 1))
 data_plot
+
+ggsave("graphs/Total_Rainfall_in_Melbourne.png", width=12, height = 6, dpi = 100)
+
+#### Visualising Total Number of Rainy Days -----------------------------
+
+data_no_plot <- ggplot(data_set, aes(x = Year, y = n)) +
+        geom_point(size=4, shape=21, col = "black", fill = "cornflowerblue") +
+        geom_smooth(method = "loess", se = TRUE, col = "black", lty = 4, alpha = 0.25)+
+        labs(title = paste("Total number of rainy days for ", Loc, sep = ""), 
+             y = "mm", 
+             x="", 
+             subtitle = M_string) +
+        theme_bw() +
+        theme(panel.grid.major = element_line(size = 0.5, color = "grey"), 
+              axis.line = element_line(size = 0.7, color = "black"), 
+              text = element_text(size = 14), axis.text.x = element_text(angle = 0, hjust = 1))
+data_no_plot
+
+ggsave("graphs/Rainy_Days_in_Melbourne.png", width=12, height = 6, dpi = 100)
