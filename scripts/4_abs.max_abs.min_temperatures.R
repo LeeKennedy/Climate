@@ -36,9 +36,9 @@ Loc <- "Melbourne"
 
 ## Time scale
 
-Years <- c(1800:2019)
+Years <- c(1800:2020)
 
-Months <- c(12)
+Months <- c(5)
 
 ## - creating date string ------------------------------------
 
