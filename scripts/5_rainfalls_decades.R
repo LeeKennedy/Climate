@@ -33,13 +33,13 @@ data_all <- rbind(data_m, data_k)
 
 ## Location = Melbourne or Kerang
 
-Loc <- "Melbourne"
+Loc <- "Kerang"
 
 ## Time scale
 
 Years <- c(1900:2019)
 
-Months <- c(1:12)
+Months <- c(4)
 
 ## - creating date string ------------------------------------
 
