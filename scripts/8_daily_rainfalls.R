@@ -37,7 +37,7 @@ Loc <- "Melbourne"
 
 ## Time scale
 
-Years <- c(1800:2020)
+Years <- c(1900:2020)
 
 Months <- c(1:12)
 
@@ -58,18 +58,15 @@ M_string <- paste("Data for ", month_list, sep="")
 data_set <- data_all %>% 
         filter(Location == Loc) %>% 
         filter(Year %in% Years) %>% 
-        filter(Month %in% Months) %>% 
-        filter(Rain > 0) %>% 
-        group_by(Year) %>% 
-        summarise(n=n(), Ave_Rain = mean(Rain), Total_Rain = sum(Rain))
+        filter(Month %in% Months) 
 data_set
 
 data_long <- gather(data_set, Temperature, Value, Ave_Max, Ave_Min)
 
 #### Visualising Total Rainfall Data -----------------------------
 
-data_plot <- ggplot(data_set, aes(x = Year, y = Total_Rain)) +
-        geom_point(size=4, shape=21, col = "black", fill = "cornflowerblue") +
+data_plot <- ggplot(data_set, aes(x = Year, y = Rain)) +
+        geom_point(size=2, shape=21, col = "black", fill = "cornflowerblue", alpha = 0.5) +
         geom_smooth(method = "loess", se = TRUE, col = "black", lty = 4, alpha = 0.25)+
         labs(title = paste("Total rainfall for ", Loc, sep = ""), 
              y = "mm", 
@@ -81,21 +78,18 @@ data_plot <- ggplot(data_set, aes(x = Year, y = Total_Rain)) +
         text = element_text(size = 14), axis.text.x = element_text(angle = 0, hjust = 1))
 data_plot
 
-ggsave("graphs/Total_Rainfall_in_Kerang.png", width=12, height = 6, dpi = 100)
-
-#### Visualising Total Number of Rainy Days -----------------------------
-
-data_no_plot <- ggplot(data_set, aes(x = Year, y = n)) +
-        geom_point(size=4, shape=21, col = "black", fill = "cornflowerblue") +
-        geom_smooth(method = "loess", se = TRUE, col = "black", lty = 4, alpha = 0.25)+
-        labs(title = paste("Total number of rainy days for ", Loc, sep = ""), 
-             y = "mm", 
-             x="", 
-             subtitle = M_string) +
+hist_plot <- ggplot(data_set, aes(x = Year, y = Rain, group = Year)) +
+        geom_boxplot(fill = "cornflowerblue") +
+        labs(title = "", 
+             y = "DegC", 
+             x="") +
         theme_bw() +
         theme(panel.grid.major = element_line(size = 0.5, color = "grey"), 
-              axis.line = element_line(size = 0.7, color = "black"), 
-              text = element_text(size = 14), axis.text.x = element_text(angle = 0, hjust = 1))
-data_no_plot
-
-ggsave("graphs/Rainy_Days_in_Kerang.png", width=12, height = 6, dpi = 100)
+        axis.line = element_line(size = 0.7, color = "black"), 
+        text = element_text(size = 14), axis.text.x = element_text(angle = 0, hjust = 1))+
+                labs(        title = "",
+                                subtitle = "",
+                                caption = "",
+                                                        x = "",
+                                                        y = "")
+hist_plot
