@@ -39,7 +39,7 @@ Loc <- "Kerang"
 
 Years <- c(1900:2019)
 
-Months <- c(4)
+Months <- c(1,2,12)
 
 ## - creating date string ------------------------------------
 

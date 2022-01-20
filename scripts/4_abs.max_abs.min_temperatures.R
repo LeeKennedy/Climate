@@ -32,7 +32,7 @@ data_all <- rbind(data_m, data_k)
 #### Filter Criteria ---------------------------
 
 ## Location = Melbourne or Kerang
-Loc <- "Melbourne"
+Loc <- "Kerang"
 
 ## Time scale
 
