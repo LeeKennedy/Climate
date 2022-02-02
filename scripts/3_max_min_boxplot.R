@@ -32,13 +32,13 @@ data_all <- rbind(data_m, data_k)
 #### Filter Criteria ---------------------------
 
 ## Location = Melbourne or Kerang
-Loc <- "Kerang"
+Loc <- "Melbourne"
 
 ## Time scale
 
-Years <- c(2000:2019)
+Years <- c(2000:2022)
 
-Months <- c(4)
+Months <- c(1)
 
 ## - creating date string ------------------------------------
 
