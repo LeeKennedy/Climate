@@ -19,13 +19,13 @@ data_m <- read_csv("data/melbourne.csv",
                    col_types = cols(Max = col_double(), 
                                     Min = col_double(), Rain = col_double()))
 data_m$Location <- "Melbourne"
-data_m <- select(data_m,-X1)
+data_m <- data_m[,-1]
 
 data_k <- read_csv("data/kerang.csv", 
                    col_types = cols(Max = col_double(), 
                                     Min = col_double(), Rain = col_double()))
 data_k$Location <- "Kerang"
-data_k <- select(data_k,-X1)
+data_k <- data_k[,-1]
 
 data_all <- rbind(data_m, data_k)
 
@@ -37,7 +37,7 @@ Loc <- "Kerang"
 
 ## Time scale
 
-Years <- c(1900:2019)
+Years <- c(1900:2022)
 
 Months <- c(1,2,12)
 
@@ -56,11 +56,6 @@ M_string <- paste("Data for ", month_list, sep="")
 #### Data Cleaning -----------------------------
 
 data_all$Decade <- cut(data_all$Year, seq(from = 1860, to = 2020, by = 10))
-
-x %>% mutate(decade = floor(year/10)*10) %>% 
-        group_by(decade) %>% 
-        summarize_all(sum) %>% 
-        select(-year)
 
 data_set <- data_all %>% 
         filter(Location == Loc) %>% 

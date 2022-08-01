@@ -19,13 +19,13 @@ data_m <- read_csv("data/melbourne.csv",
                    col_types = cols(Max = col_double(), 
                                     Min = col_double(), Rain = col_double()))
 data_m$Location <- "Melbourne"
-data_m <- select(data_m,-X1)
+data_m <- data_m[,-1]
 
 data_k <- read_csv("data/kerang.csv", 
                    col_types = cols(Max = col_double(), 
                                     Min = col_double(), Rain = col_double()))
 data_k$Location <- "Kerang"
-data_k <- select(data_k,-X1)
+data_k <- data_k[,-1]
 
 data_all <- rbind(data_m, data_k)
 
@@ -38,7 +38,7 @@ Loc <- "Melbourne"
 
 Years <- c(2000:2022)
 
-Months <- c(2)
+Months <- c(6)
 
 ## - creating date string ------------------------------------
 

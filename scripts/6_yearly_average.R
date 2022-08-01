@@ -36,11 +36,11 @@ yearly
 
 #### Visualising Data -----------------------------
 
-yearly_plot <- ggplot(yearly, aes(x = Year, y = Min_Ave, fill = Town)) +
+yearly_plot <- ggplot(yearly, aes(x = Year, y = Max_Ave, fill = Town)) +
         geom_point(size = 4, shape = 21) +
         geom_smooth(method = "lm")+
         scale_x_continuous(limits = c(1900,2018))+
-        labs(title = "Average Yearly Minimum Temperature", x="", y="deg C")+
+        labs(title = "Average Yearly Maximum Temperature", x="", y="deg C")+
         theme_bw() +
         theme(panel.grid.major = element_line(size = 0.5, color = "grey"), 
         axis.line = element_line(size = 0.7, color = "black"), 

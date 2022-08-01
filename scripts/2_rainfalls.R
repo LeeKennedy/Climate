@@ -19,13 +19,13 @@ data_m <- read_csv("data/melbourne.csv",
                    col_types = cols(Max = col_double(), 
                                     Min = col_double(), Rain = col_double()))
 data_m$Location <- "Melbourne"
-data_m <- select(data_m,-X1)
+data_m <- data_m[,-1]
 
 data_k <- read_csv("data/kerang.csv", 
                    col_types = cols(Max = col_double(), 
                                     Min = col_double(), Rain = col_double()))
 data_k$Location <- "Kerang"
-data_k <- select(data_k,-X1)
+data_k <- data_k[,-1]
 
 data_all <- rbind(data_m, data_k)
 
@@ -33,13 +33,13 @@ data_all <- rbind(data_m, data_k)
 
 ## Location = Melbourne or Kerang
 
-Loc <- "Kerang"
+Loc <- "Melbourne"
 
 ## Time scale
 
-Years <- c(1800:2020)
+Years <- c(1800:2022)
 
-Months <- c(4)
+Months <- c(6)
 
 ## - creating date string ------------------------------------
 
@@ -64,7 +64,6 @@ data_set <- data_all %>%
         summarise(n=n(), Ave_Rain = mean(Rain), Total_Rain = sum(Rain))
 data_set
 
-data_long <- gather(data_set, Temperature, Value, Ave_Max, Ave_Min)
 
 #### Visualising Total Rainfall Data -----------------------------
 
