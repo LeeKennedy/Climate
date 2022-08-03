@@ -41,7 +41,7 @@ Loc <- "Melbourne"
 
 Years <- c(1800:2022)
 
-Months <- c(8)
+Months <- c(7)
 
 ## - creating date string ------------------------------------
 
